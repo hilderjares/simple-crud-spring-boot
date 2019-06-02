@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>People</title>
+</head>
+<body>
+	<h2>Person -> List</h2>
+	<h4>
+		<a href="/person/form"> Add new </a>
+	</h4>
+	<section>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Team</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="person : ${listPeople}">
+					<td th:text="${person.name}"></td>
+					<td th:text="${person.team}"></td>
+					<td>
+						<a th:href="@{/person/delete/{id}(id = ${person.ID})}"> Delete </a> | 
+						<a th:href="@{/person/update/{id}(id = ${person.ID})}"> Update </a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+</body>
+</html>

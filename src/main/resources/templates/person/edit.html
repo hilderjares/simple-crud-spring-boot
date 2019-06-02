@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Form Person</title>
+</head>
+<body>
+	<h2> Person -> Update </h2>
+	<h4> <a href="/person/list"> List People </a> </h4>
+	<section>
+		<form action="/person/save" method="post" th:object="${person}">
+			<input type="hidden" th:field="*{ID}" />
+			<p>
+				<input type="text" name="name" th:field="*{name}" placeholder="Qual eh seu nome ?" />
+			</p>
+			<p>
+				<input type="text" name="team" th:field="*{team}" placeholder="Qual eh seu time ?" />
+			</p>
+			<p>
+				<button type="submit">EDIT</button>
+			</p>
+		</form>
+	</section>
+</body>
+</html>
